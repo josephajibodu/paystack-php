@@ -2,7 +2,4 @@
 
 namespace JosephAjibodu\Paystack\Resources;
 
-class SubscriptionResource extends ApiResource
-{
-
-}
+class SubscriptionResource extends ApiResource {}

@@ -2,7 +2,4 @@
 
 namespace JosephAjibodu\Paystack\Exceptions;
 
-class InvalidRequestException extends PaystackException
-{
-
-}
+class InvalidRequestException extends PaystackException {}

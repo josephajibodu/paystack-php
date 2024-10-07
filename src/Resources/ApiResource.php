@@ -11,7 +11,6 @@ use JosephAjibodu\Paystack\Exceptions\AuthenticationException;
 use JosephAjibodu\Paystack\Exceptions\InvalidRequestException;
 use JosephAjibodu\Paystack\Exceptions\PaystackException;
 use JosephAjibodu\Paystack\Exceptions\RateLimitException;
-use JosephAjibodu\Paystack\Paystack;
 use Psr\Http\Message\ResponseInterface;
 
 class ApiResource
@@ -54,7 +53,7 @@ class ApiResource
         $data = json_decode($body, true);
 
         if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new PaystackException("Invalid JSON response from API");
+            throw new PaystackException('Invalid JSON response from API');
         }
 
         if ($data['status'] === false) {
@@ -67,16 +66,17 @@ class ApiResource
     private function handleRequestException(GuzzleException $e): PaystackException
     {
         if ($e instanceof ConnectException) {
-            return new ApiConnectionException("Network error: " . $e->getMessage(), 0, $e);
+            return new ApiConnectionException('Network error: '.$e->getMessage(), 0, $e);
         }
 
         if ($e instanceof RequestException && $e->hasResponse()) {
             $response = $e->getResponse();
             $body = json_decode((string) $response->getBody(), true);
+
             return $this->createExceptionFromResponse($body, $response->getStatusCode());
         }
 
-        return new PaystackException("An unexpected error occurred: " . $e->getMessage(), 0, $e);
+        return new PaystackException('An unexpected error occurred: '.$e->getMessage(), 0, $e);
     }
 
     private function createExceptionFromResponse(array $data, int $statusCode): PaystackException

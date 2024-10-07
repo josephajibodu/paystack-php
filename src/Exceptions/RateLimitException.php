@@ -2,7 +2,4 @@
 
 namespace JosephAjibodu\Paystack\Exceptions;
 
-class RateLimitException extends PaystackException
-{
-
-}
+class RateLimitException extends PaystackException {}

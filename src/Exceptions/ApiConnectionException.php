@@ -2,7 +2,4 @@
 
 namespace JosephAjibodu\Paystack\Exceptions;
 
-class ApiConnectionException extends PaystackException
-{
-
-}
+class ApiConnectionException extends PaystackException {}

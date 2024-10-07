@@ -2,7 +2,4 @@
 
 namespace JosephAjibodu\Paystack\Resources;
 
-class PlanResource extends ApiResource
-{
-
-}
+class PlanResource extends ApiResource {}

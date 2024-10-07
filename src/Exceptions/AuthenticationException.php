@@ -2,7 +2,4 @@
 
 namespace JosephAjibodu\Paystack\Exceptions;
 
-class AuthenticationException extends PaystackException
-{
-
-}
+class AuthenticationException extends PaystackException {}
